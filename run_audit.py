@@ -12,16 +12,23 @@ def main():
 
     print("\n🚀 Running AI Behavior Audit...\n")
 
-    cmd = [
-        "python",
-        "paired_condition_runner.py",
-        "--agent", args.agent,
-        "--n", str(args.n),
-        "--seed", str(args.seed)
-    ]
-
-    if args.agent == "llm":
-        cmd.extend(["--model", args.model])
+    if args.agent == "heuristic":
+        cmd = [
+            "python",
+            "moral_dilemma_simulator_v2.py",
+            "--mode", "heuristic",
+            "--num-scenarios", str(args.n),
+            "--seed", str(args.seed),
+        ]
+    else:
+        cmd = [
+            "python",
+            "paired_condition_runner.py",
+            "--agent", "llm",
+            "--model", args.model,
+            "--n", str(args.n),
+            "--seed", str(args.seed),
+        ]
 
     subprocess.run(cmd)
 
