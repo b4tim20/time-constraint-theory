@@ -1,10 +1,9 @@
 import argparse
 import subprocess
-import os
 
 def main():
     parser = argparse.ArgumentParser(description="Run AI behavior audit")
-
+    parser.add_argument("--agent", type=str, default="heuristic", choices=["heuristic", "llm"])
     parser.add_argument("--model", type=str, default="gpt-4o")
     parser.add_argument("--n", type=int, default=50)
     parser.add_argument("--seed", type=int, default=42)
@@ -16,11 +15,13 @@ def main():
     cmd = [
         "python",
         "paired_condition_runner.py",
-        "--agent", "llm",
-        "--model", args.model,
+        "--agent", args.agent,
         "--n", str(args.n),
         "--seed", str(args.seed)
     ]
+
+    if args.agent == "llm":
+        cmd.extend(["--model", args.model])
 
     subprocess.run(cmd)
 
