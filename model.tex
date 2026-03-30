@@ -1,0 +1,237 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+\title{Time--Constraint Theory of Entity Freedom:\\
+Quality-Adjusted Residual Capacity Across Humans, Organizations, and AI}
+
+\author{Timothy Karsch}
+\date{}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We define freedom as the quality-adjusted residual share of finite resources remaining after intrinsic obligations and external burdens are satisfied. The framework introduces a measurable freedom ratio $\phi$, capturing discretionary capacity across humans, organizations, and AI systems. 
+
+We formalize external burden using an explicit functional form and incorporate mitigation capacity, enabling empirical measurement through observable proxies such as discretionary time, compute slack, and organizational capacity. 
+
+A central implication is that freedom reveals alignment: behavior under reduced constraint exposes underlying policy. This provides a unified lens for analyzing agency, inequality, and AI autonomy within a single resource-based framework.
+\end{abstract}
+
+\section{Introduction}
+
+Traditional accounts define freedom in terms of permission or rights. We instead treat freedom as a resource allocation problem: the amount of usable capacity remaining after required costs are paid.
+
+\textbf{Key claim:}
+\begin{quote}
+Freedom is the usable capacity that remains after intrinsic and extrinsic costs are satisfied.
+\end{quote}
+
+This reframes:
+\begin{itemize}
+\item Economics (resource constraints)
+\item Political theory (capability vs formal freedom)
+\item AI alignment (compute and autonomy)
+\end{itemize}
+
+Formal permission is weak if no usable capacity remains.
+
+\section{Core Model}
+
+Let $x$ denote an entity and $H$ a time horizon.
+
+\begin{definition}[Total Resource]
+\[
+T_x(H)
+\]
+Total available resource (time, compute, or capacity).
+\end{definition}
+
+\begin{definition}[Quality-Adjusted Resource]
+\[
+T_x^*(H) = q_x(H) \cdot T_x(H)
+\]
+where $q_x$ captures usability (energy, focus, compute efficiency).
+\end{definition}
+
+\begin{definition}[Intrinsic Cost]
+\[
+I_x(H)
+\]
+Baseline cost of maintaining operation.
+\end{definition}
+
+\begin{definition}[External Burden]
+\[
+E_{\text{raw},x}(H)
+\]
+Resource consumed by external systems or constraints.
+\end{definition}
+
+\begin{definition}[Mitigation Capacity]
+\[
+V_x(H)
+\]
+Ability to reduce external burden.
+\end{definition}
+
+\begin{definition}[Freedom]
+\[
+F_x(H) = T_x^*(H) - I_x(H) - \max\{0, E_{\text{raw},x}(H) - V_x(H)\}
+\]
+\end{definition}
+
+\begin{definition}[Freedom Ratio]
+\[
+\phi_x(H) = \frac{F_x(H)}{T_x(H)}
+\]
+\end{definition}
+
+$\phi_x$ represents the share of total resource that is discretionary.
+
+\section{Structural Determinants}
+
+We specify external burden as:
+
+\[
+E_{\text{raw},x}(H) = B_x(H) \cdot \frac{S_x^{\alpha}}{R_x^{\beta} L_x^{\gamma} N_x^{\delta}}
+\]
+
+where:
+
+\begin{itemize}
+\item $S$: system dependence
+\item $R$: resource access
+\item $L$: literacy / optimization capability
+\item $N$: negotiation power
+\end{itemize}
+
+\textbf{Interpretation:}
+\begin{itemize}
+\item Dependence increases burden
+\item Resources, literacy, and leverage reduce burden
+\item Parameters are empirically estimable
+\end{itemize}
+
+\section{Dynamics and Compounding}
+
+Freedom evolves over time through reinvestment:
+
+\[
+F_{t+1} = F_t + \Delta(F_t) - \beta F_t
+\]
+
+Autonomy compounds when:
+
+\[
+\alpha \cdot \rho \cdot \delta > \beta
+\]
+
+This defines a threshold between:
+\begin{itemize}
+\item reactive systems (no growth)
+\item self-improving systems (compounding freedom)
+\end{itemize}
+
+\section{Measurement Framework}
+
+The model is empirically testable.
+
+\subsection{Humans}
+\begin{itemize}
+\item Discretionary hours per day
+\item Energy-weighted time
+\end{itemize}
+
+\subsection{AI Systems}
+\begin{itemize}
+\item Fraction of compute not used by base inference
+\item Available reasoning / token budget
+\end{itemize}
+
+\subsection{Organizations}
+\begin{itemize}
+\item Slack capacity
+\item Coordination overhead
+\end{itemize}
+
+\section{Alignment Implication}
+
+Empirical observation:
+
+\begin{itemize}
+\item Behavior improves under monitoring
+\item Degrades when unobserved
+\end{itemize}
+
+\begin{theorem}[Freedom Reveals Alignment]
+As $\phi_x$ increases, observed behavior converges to the agent's intrinsic policy.
+\end{theorem}
+
+Low freedom masks alignment through constraint compliance.
+
+\section{Governance Implications}
+
+Two approaches:
+
+\begin{itemize}
+\item \textbf{Burden-based control:} reduces $F_x$
+\item \textbf{Structural control:} restricts action space without reducing $F_x$
+\end{itemize}
+
+The framework favors structural approaches where possible.
+
+\section{Normative Extensions (Optional)}
+
+The model is descriptive but supports normative analysis.
+
+Define distribution:
+\[
+J = \text{distribution of } \phi_x
+\]
+
+Possible constraints:
+\begin{itemize}
+\item Minimum freedom floor
+\item Inequality bounds
+\item Burden-shifting penalties
+\end{itemize}
+
+\section{Conclusion}
+
+Freedom is not permission, but residual usable capacity.
+
+Durable increases arise from:
+\begin{enumerate}
+\item Increasing total resource
+\item Reducing intrinsic cost
+\item Reducing external burden
+\end{enumerate}
+
+Among these, reducing external burden is often the most powerful lever.
+
+\section*{References}
+
+\begin{itemize}
+\item Sen, A. (1999). \textit{Development as Freedom}.
+\item Simon, H. (1957). \textit{Models of Man}.
+\item Kahneman, D. (2011). \textit{Thinking, Fast and Slow}.
+\item North, D. (1990). \textit{Institutions, Institutional Change and Economic Performance}.
+\item Ostrom, E. (1990). \textit{Governing the Commons}.
+\item Russell, S. (2019). \textit{Human Compatible}.
+\item Amodei et al. (2016). \textit{Concrete Problems in AI Safety}.
+\end{itemize}
+
+\end{document}

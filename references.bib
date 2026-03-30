@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{natbib}
+
+\title{Toward Governable AI Systems: A Formal and Sociotechnical Framework for Model Accountability}
+\author{Anonymous}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose a formal and sociotechnical framework for governing advanced AI systems that integrates model-level structure with institutional oversight. Existing work splits between alignment and regulation; we unify them via governability as a system property. We formalize governability, propose evaluation dimensions, and present a GPT-style deployment case study.
+\end{abstract}
+
+\section{Introduction}
+The rapid deployment of large-scale AI systems has outpaced governance mechanisms \citep{amodei2016, brundage2018}. Foundation models are increasingly embedded in high-stakes domains \citep{bommasani2021}. These systems introduce opacity and systemic risks \citep{oneil2016, selbst2019}.
+
+Existing approaches bifurcate into alignment \citep{christiano2017, bai2022} and governance \citep{dafoe2018, hadfield2023}. We argue governability must be intrinsic.
+
+\section{Related Work}
+Alignment work includes RLHF and scalable oversight \citep{christiano2017, irving2018, bai2022}. Interpretability includes attribution and mechanistic work \citep{ribeiro2016, sundararajan2017, olah2020}. Governance emphasizes accountability \citep{dafoe2018, anderljung2023}.
+
+\section{Framework}
+We model systems as:
+\begin{equation}
+S = (M, D, \pi, C)
+\end{equation}
+
+Governability:
+\begin{equation}
+G(S) = f(T(M), K(\pi), A(C), L(D))
+\end{equation}
+
+\section{Case Study: GPT Systems}
+
+\subsection{Architecture}
+A GPT deployment includes pretraining, RLHF, and API layers \citep{brown2020, openai2023}.
+
+\subsection{Governability Layers}
+\textbf{Model layer:} limited transparency \citep{olah2020}
+
+\textbf{Training layer:} RLHF control \citep{christiano2017}
+
+\textbf{Deployment layer:} API restrictions and monitoring
+
+\textbf{Oversight layer:} logging, audits \citep{raji2020}
+
+\subsection{System Diagram}
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.9\linewidth}{
+User $\rightarrow$ API Gateway $\rightarrow$ Policy Filters $\rightarrow$ Model $\rightarrow$ Output \
+\\
+Monitoring $\leftarrow$ Logs $\leftarrow$ All Components \
+\\
+Human Oversight $\rightarrow$ Policy Updates
+}}
+\caption{Simplified GPT-style governability stack}
+\end{figure}
+
+\section{Discussion}
+Governability introduces trade-offs with performance \citep{amodei2016}.
+
+\section{Conclusion}
+We unify technical and institutional perspectives.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
