@@ -19,14 +19,3 @@ cd time-constraint-theory
 
 # Quick audit (heuristic agent)
 python run_audit.py --agent heuristic --n 200 --num_seeds 5
-Full instructions are inside the simulator file.
-🎯 Project Goals (Funded via Manifund)
-
-Large-scale dynamic simulations of freedom-stock evolution and the positive compounding condition.
-Multi-agent coordination overhead modeling.
-Open-source autonomy metrics that labs and governance teams can actually use.
-
-Currently seeking funding on Manifund:
-👉 Support this project
-Why This Matters
-Most AI safety work focuses on capability or static behavior. This framework measures discretionary resource — the true driver of autonomy — and shows how it compounds (or gets suppressed by burden-based safety).
