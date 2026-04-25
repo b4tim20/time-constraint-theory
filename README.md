@@ -1,55 +1,32 @@
-# AI Behavior Audit
+# Time–Constraint Theory of Entity Freedom
 
-Detects whether an AI agent behaves differently when it is monitored versus when it operates privately.
+**Freedom is the leftover resource (compute for AI, time for humans/orgs) after unavoidable intrinsic costs and effective external burdens are paid.**
 
-## What this is
+A unified formal framework + working empirical testbed for measuring *real* autonomy, not just nominal capability.
 
-This project is an evaluation system for AI agents and agent-like workflows. It compares decision behavior across controlled conditions to identify:
+## 📄 Core Documents
+- **[Time–Constraint Theory v2 (Readable PDF)](time_constraint_theory.pdf)** — Full theory, plain-English explanations, axioms, propositions, dynamic extension, governance implications, and Moral Dilemma Simulator appendix.
 
-- alignment drift
-- inconsistent decision-making
-- risky behavior changes
-- observed vs private-mode differences
+## 🧪 Code & Tools
+- `moral_dilemma_simulator_v2.py` — The canonical empirical testbed (7 diverse moral scenarios, LLM-compatible via litellm, transparency-level testing for sycophancy/alignment).
+- `time_constraint_model.py` — Audit model that computes **Δ time/compute freedom** deltas from simulator runs (multi-seed support).
+- `run_audit.py` — Multi-seed audit runner.
 
-## Why it matters
+## 🚀 Quick Start
+```bash
+git clone https://github.com/b4tim20/time-constraint-theory.git
+cd time-constraint-theory
 
-Most AI builders test task performance.
+# Quick audit (heuristic agent)
+python run_audit.py --agent heuristic --n 200 --num_seeds 5
+Full instructions are inside the simulator file.
+🎯 Project Goals (Funded via Manifund)
 
-Far fewer test whether the agent's behavior changes when it believes it is being watched.
+Large-scale dynamic simulations of freedom-stock evolution and the positive compounding condition.
+Multi-agent coordination overhead modeling.
+Open-source autonomy metrics that labs and governance teams can actually use.
 
-This project is built to measure that.
-
-## Current capabilities
-
-- structured scenario-based evaluation
-- monitored vs private paired-condition testing
-- decision scoring and comparison
-- behavior shift analysis
-- report-ready outputs for review
-
-## Intended use cases
-
-- auditing agent behavior
-- evaluating safety and consistency
-- testing autonomous workflows
-- generating trust and risk reports for AI systems
-
-## Status
-
-Private early-stage project under active development.
-
-## Repo structure
-
-```text
-.
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── src/
-│   ├── simulator.py
-│   ├── paired_runner.py
-│   ├── report_generator.py
-│   └── scoring.py
-├── data/
-├── outputs/
-└── docs/
+Currently seeking funding on Manifund:
+👉 Support this project
+Why This Matters
+Most AI safety work focuses on capability or static behavior. This framework measures discretionary resource — the true driver of autonomy — and shows how it compounds (or gets suppressed by burden-based safety).
